@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<style>
+table, th , td  {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 5px;
+}
+table tr:nth-child(odd) {
+  background-color: #f1f1f1;
+}
+table tr:nth-child(even) {
+  background-color: #ffffff;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="studentsCtrl"> 
+
+<table>
+  <tr ng-repeat="x in names">
+    <td>{{ x.ord }}</td>
+    <td>{{ x.names }}</td>
+    <td>{{ x.nota }}</td>
+  </tr>
+</table>
+
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('studentsCtrl', function($scope) {
+    $scope.names = [
+    {ord : "1",names : "Emil Dragnea", nota: "10"},
+    {ord : "2",names : "Ion Ceban",nota: "7"},
+    {ord : "3",names : "Lilian Marin",nota: "9"},
+    {ord : "4",names : "Andrei Solomon",nota: "10"},
+    {ord : "5",names : "Aliona Dumitrescu",nota: "5"},
+    {ord : "6",names : "Ana Andrienco",nota: "6"},
+    {ord : "7",names : "Anastasia Vasiliu",nota: "8"}];
+});
+</script>
+
+</body>
+</html>

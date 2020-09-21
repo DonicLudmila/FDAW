@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+
+<div data-ng-app="" data-ng-init="a=1;b!=0">
+
+<h2>Calculul a doua numere</h2>
+
+A: <input type="number" ng-model="a">
+B: <input type="number" ng-model="b">
+
+<div ng-show="a;b">
+<p><b>Citul:</b> {{a / b}}</p>
+
+</div>
+
+</body>
+</html>

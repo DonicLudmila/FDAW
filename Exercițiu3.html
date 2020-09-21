@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+  a:<input type='number' ng-model='a'>
+  b:<input type='number' ng-model='b'>
+   <h1>Rezultat: {{suma()}}</h1>
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.a = 1;
+    $scope.b = 2;
+    $scope.suma = function() {
+        return $scope.a+$scope.b;
+        
+    }
+});
+</script>
+
+
+
+</body>
+</html>

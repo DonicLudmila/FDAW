@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+<h2>Dati doua numere</h2>
+A: <input type="number" ng-model="a">
+B: <input type="number" ng-model="b">
+</br>
+<h3>Apasati pe buton pentru a afla produsul lor!</h3>
+<button ng-click="produs = a*b">Click Me!</button>
+
+<p><h3 style="color:red;"> Ati obtinut: {{ produs }}</h3></p>
+
+</div>
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.count = 0;
+});
+</script> 
+
+</body>
+</html>

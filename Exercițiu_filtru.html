@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="arrCtrl">
+
+<ul>
+<li ng-repeat="x in lista | filter : {'name' : 'a', 'prenume' : 'n'}">{{x.name + " " + x.prenume}}</li>
+</ul>
+
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('arrCtrl', function($scope) {
+    $scope.lista = [
+        {"name" : "Alfreds ", "prenume" : "Futterkiste"},
+        {"name" : "Ana", "prenume" : "Horn"},
+        {"name" : "Alina", "prenume" : "Levitchi"},
+        {"name" : "Bogdan", "prenume" : "Ceban"},
+        {"name" : "Boris", "prenume" : "Caraman"},
+        {"name" : "Ion" ,"prenume" : "Mardari"},
+        {"name" : "Ian", "prenume" : "Solomon"}
+    ];
+});
+</script>
+
+<p>Cautam studentul cu numele in care are litera "a" si prenumele in care are litera "n"</p>
+
+</body>
+</html>

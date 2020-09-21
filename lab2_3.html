@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+<h2>Selectati studentul</h2>
+<select ng-model="selectedName">
+<option ng-repeat="x in names" value="{{x.names}}">{{x.names}}</option>
+</select>
+<h1> Ati selectat studentul: {{selectedName}}</h1>
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.names = [
+    {names : "Emil Dragnea"},
+    {names : "Ion Ceban"},
+    {names : "Lilian Marin"},
+    {names : "Andrei Solomon"},
+    {names : "Aliona Dumitrescu"},
+    {names : "Ana Andrienco"},
+    {names : "Anastasia Vasiliu"}];
+});
+</script>
+
+
+
+</body>
+</html>
