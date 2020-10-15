@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Formular Angajare</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body>
+<div ng-app="myApp" ng-controller="formCtrl">
+	<center>Formular Angajare</center>
+  <form novalidate>
+ 	<b>Nume:</b> <input type="text" name="nume" ng-model="nume"> 
+ 	<b>Prenume:</b> <input type="text" name="prenume" ng-model="prenume"><br><br>
+ 	<b>Data nasterii:</b> <input type="date" name="data" ng-model="data">
+ 	<br><br>
+ 	<b>Facultatea:</b>
+ 	Chimie <input type="radio" ng-model="facultatea" value="Chimie">
+    Informatica <input type="radio" ng-model="facultatea" value="Informatica">
+    Matematica <input type="radio" ng-model="facultatea" value="Matematica">
+    Biologia <input type="radio" ng-model="facultatea" value="Biologia">
+    <br><br>
+ 	<b>Obiectul Predarii:</b>
+    <select ng-model="obiectul" ng-options="x.obiect for x in obiectulPredat"></select> <br><br>
+    <b>Salariu asteptat:</b> <input type="number" name="salariu" ng-model="salariu" ng-change="verifica()"> <span ng-show="exagerat">Exagerat!</span> <span ng-show="subestim">Va subestimati!</span>
+    <br><br>
+    <button ng-click='submit()' ng-disabled="flag">CONFIRMA</button>
+    <button type="reset">ANULEAZA</button>
+  </form>
+  <br><br>
+  <p><b>Rezultat cu apasare buton:</b></p>
+  Nume: {{rezultat.nume}} <br>
+  Prenume: {{rezultat.prenume}} <br>
+  Data: {{rezultat.data | date : "fullDate" }} <br>
+  Facultatea: {{rezultat.facultatea}}<br>
+  Obiectul Predarii: {{rezultat.obiectul}}<br>
+  Salariu: {{rezultat.salariu}} lei
+</div>
+
+ <br><br><center>A realizat: Jigau Cristian IA1801ro</center>
+
+<script>
+	var app = angular.module('myApp',[]);
+	app.controller('formCtrl',function($scope){
+		$scope.rezultat = {nume: '',prenume:'', data:'',facultatea:'',obiectul:'', salariu: 0,};
+		$scope.obiectulPredat = [
+		{obiect: 'Chimia Organica'},
+		{obiect: 'Matematica Economica'},
+		{obiect: 'Informatica Aplicata'},
+		{obiect: 'Biologia Bacteriana'},
+		];
+
+		$scope.verifica = function(){
+		if($scope.salariu > 5000){
+						$scope.flag = true;
+						$scope.exagerat = true;
+						$scope.subestim = false;
+		 } 
+
+		if($scope.salariu < 3000) { $scope.subestim = true; $scope.flag = true; $scope.exagerat = false;}
+
+		if( $scope.salariu <= 5000 && $scope.salariu >= 3000 ) {$scope.flag = false; $scope.exagerat = false; $scope.subestim = false; } 
+		 };
+
+	$scope.submit = function(){
+		$scope.rezultat.nume = $scope.nume;
+		$scope.rezultat.prenume = $scope.prenume;
+		$scope.rezultat.data = $scope.data;
+		$scope.rezultat.facultatea = $scope.facultatea;
+		$scope.rezultat.obiectul = $scope.obiectul.obiect;
+		$scope.rezultat.salariu = $scope.salariu;
+	};
+	});
+</script>
+
+
+</body>
+</html>
