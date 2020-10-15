@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body>
+
+<div ng-app="MyApp" ng-controller="MyCtrl">
+	<select ng-model="selectedStudent" ng-options="(x.nume+' '+x.prenume) for x in studenti">
+</select>
+<table border="1">
+<p>Informatie despre studentul selectat:</p>
+<p>Nume: {{ selectedStudent.nume }} <br>
+ Prenume: {{ selectedStudent.prenume }} <br>
+  Nota: {{ selectedStudent.nota }} </p>
+</table>
+</div>
+<script>
+	var app = angular.module('MyApp',[]);
+	app.controller('MyCtrl', function($scope){
+		$scope.studenti = [
+		{nume:'Cojocaru', prenume:'Cristian', nota:10,},
+		{nume:'Jigau', prenume:'Radu', nota:9},
+		{nume:'Botnaru', prenume:'Corneliu', nota:8},
+		{nume:'Cibotaru', prenume:'Adrian', nota:9},
+		{nume:'Rotari', prenume:'Elena',nota:7},
+		{nume:'Moraru', prenume:'Elena', nota:10},
+		];
+	});
+	</script>
+</body>
+</html>
